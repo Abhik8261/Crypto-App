@@ -5,7 +5,7 @@ const Header = ({mode,toggleMode}) => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/">Crypto</Link>
+    <Link className="navbar-brand" to="/">X-Crypto</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
