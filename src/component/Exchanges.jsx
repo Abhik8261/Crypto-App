@@ -6,10 +6,10 @@ import Loader from '../component/Loader/Loader'
 import ExchangeCard from './ExchangeCard';
 import ErrorComponent from './ErrorComponent.jsx';
 
-const Exchanges = () => {
-  const [exchanges, setExchanges] = useState()
+const Exchanges = ({col,boxcol}) => {
+  const [exchanges, setExchanges] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
   
   useEffect(() => {
     
@@ -30,13 +30,13 @@ const Exchanges = () => {
   if(error) return <ErrorComponent message={'error while fetching the data'}/>
   
   return (
-    <Container maxW={"container.xl"}>
+    <Container maxW={"container.xl"} >
     {
       loading ? <Loader/> : <>
       <HStack  wrap={'wrap'} justifyContent={'space-between'}>
       {
         exchanges.map((i)=>(
-          <ExchangeCard key={i.id} name={i.name} img={i.image} url={i.url} rank={i.trust_score_rank}/>
+          <ExchangeCard key={i.id} name={i.name} img={i.image} url={i.url} rank={i.trust_score_rank} boxcol={boxcol} col={col}/>
         ))
       }
       </HStack>

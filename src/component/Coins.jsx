@@ -8,7 +8,7 @@ import ErrorComponent from './ErrorComponent.jsx';
 import CoinCard from './CoinCard';
 import Pagination from 'react-responsive-pagination';
 
-const Coins = () => {
+const Coins = ({col ,boxcol}) => {
   const [coins, setCoins] = useState()
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -46,7 +46,7 @@ const totalPages=123;
     {
       loading ? (<Loader/>) : <>
 
-      <RadioGroup value={currency} onChange={setCurrency} p={'8'}>
+      <RadioGroup value={currency} onChange={setCurrency} p={'8'} style={{color:`${col}`}}>
         <HStack spacing={'4'}>
           <Radio value='inr'>INR</Radio> 
           <Radio value='usd'>USD</Radio>
@@ -58,7 +58,7 @@ const totalPages=123;
       <HStack  wrap={'wrap'} justifyContent={'space-evenly'}>
       {
         coins.map((i)=>(
-          <CoinCard key={i.id} id={i.id} name={i.name} img={i.image} price={i.current_price} symbol={i.symbol} currencySymbol={currencySymbol}/>
+          <CoinCard key={i.id} id={i.id} name={i.name} img={i.image} price={i.current_price} symbol={i.symbol} currencySymbol={currencySymbol} col={col} boxcol={boxcol}/>
         ))
       }
       </HStack>

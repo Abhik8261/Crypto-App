@@ -9,7 +9,7 @@ import CustomBar from './CustomBar';
 import Items from './Items';
 import Chart from './Chart';
 
-const CoinsDetails = () => {
+const CoinsDetails = ({col,boxcol}) => {
   const [coins, setCoins] = useState({})
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(false);
@@ -91,11 +91,11 @@ const switchChartStats=(key)=>{
       {
         loading ? <Loader/>:
           <>
-          <Box w={'full'} borderWidth={1}>
+          <Box w={'full'} borderWidth={1} style={{background:`${boxcol}`,color:`${col}`}}>
          
-            <Chart arr={chartArray} days={days} currency={currencySymbol}/>
+            <Chart arr={chartArray} days={days} currency={currencySymbol} col={col} boxcol={boxcol}/>
           </Box>
-        <HStack p={'4'} overflowX={'auto'}>
+        <HStack p={'4'} overflowX={'auto'} >
           {
             btns.map((i)=>(
               <Button key={i} onClick={()=>{switchChartStats(i)}}>{i}</Button>
@@ -104,7 +104,7 @@ const switchChartStats=(key)=>{
 
         </HStack>
 
-          <RadioGroup value={currency} onChange={setCurrency} p={'8'}>
+          <RadioGroup value={currency} onChange={setCurrency} p={'8'} style={{background:`${boxcol}`,color:`${col}`}}>
         <HStack spacing={'4'}>
           <Radio value='inr'>INR</Radio> 
           <Radio value='usd'>USD</Radio>
@@ -112,7 +112,7 @@ const switchChartStats=(key)=>{
 
         </HStack>
       </RadioGroup>
-      <VStack spacing={'4'} p='16' alignItems={'flex-start'} alignSelf='center' opacity={'0.7'}>
+      <VStack spacing={'4'} p='16' alignItems={'flex-start'} alignSelf='center' opacity={'0.7'} style={{background:`${boxcol}`,color:`${col}`}}>
 
         <Text fontSize={'small'}>
         Last Updated  on {Date(coins.market_data.last_updated).split("G")[0]}

@@ -7,7 +7,7 @@ ChartJS.register(
 );
 
 
-const Chart = ({arr=[],currency,days}) => {
+const Chart = ({arr=[],currency,days,col,boxcol}) => {
    
     const Prices=[];
     const date=[];
@@ -32,7 +32,7 @@ const Chart = ({arr=[],currency,days}) => {
     }
   return (
     <Line 
-    options={{responsive:true
+    options={{responsive:true,
     }}
     data={data}
     />
