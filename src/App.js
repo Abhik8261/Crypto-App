@@ -29,6 +29,7 @@ function App() {
        document.body.style.backgroundColor='white';
      }
   }
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
   return (
    <>
    <Router>
