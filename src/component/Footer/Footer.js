@@ -11,7 +11,7 @@ const Footer = () => {
         <h1>X-CRYPTO</h1>
         
 
-        <p>Copyrights 2022 &copy; MeAbhinav kumar</p>
+        <p>Copyrights 2023 &copy; MeAbhinav kumar</p>
       </div>
 
       <div className="rightFooter">
