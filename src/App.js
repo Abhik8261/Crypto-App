@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import Coins from "./component/Coins";
+import Header from './component/Header';
+import { useState } from "react";
+import Home from './component/Home';
+import Exchanges from './component/Exchanges';
+import CoinsDetails from "./component/CoinsDetails";
 function App() {
+  const [mode, setMode] = useState('light');
+  // if(mode ==='light'){
+  //   setMode('dark');
+  //   document.body.style.backgroundColor='#042743';
+   
+  // }
+  // else{
+  //   setMode('light');
+  //   document.body.style.backgroundColor='white';
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <Router>
+    <Header />
+    <Routes>
+
+ <Route  path="/" element={<Home/>} />
+<Route path="/coins" element={<Coins/>}/>
+<Route path="/exchanges" element={<Exchanges/>}/>
+<Route path="/coin/:id" element={<CoinsDetails/>}/> 
+
+
+
+
+    </Routes>
+   </Router>
+   
+   </>
   );
 }
 
